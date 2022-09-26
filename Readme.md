@@ -6,6 +6,7 @@
   - os : Ubuntu 18.04 (we didn't check Window os environment)
   - Python >= 3.7
 
+Run the below code to set the environment
 ```bash
 pip install -r requirement.txt
 ```
@@ -29,9 +30,15 @@ root
     ├─ [3]IPA
     └─ etc.
 ```
+
+## [1~2] Review data preprocessing and service feature identification
+
 ```bash
-python estimateImportance.py --yaml="Params.yaml"
+python identifyServiceFeatures.py --yaml="Params"
 ```
+
+## [3] Global importance estimation using optimal prediction model
 ```bash
-python identifyServiceFeatures.py --yaml="Params.yaml"
+python estimateImportance.py --yaml="Params"
 ```
+
