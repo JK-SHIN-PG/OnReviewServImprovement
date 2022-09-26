@@ -1,0 +1,70 @@
+# For stage 1.
+RESULT_PATH : "./Results/"
+CUSTDATA_PATH : './Datasets/Custom/HotelRev_less4STAR.xlsx'
+#num_reviews == -1 : whole reviews
+n_reviews : -1
+#LDA Tuning
+startNum : 3
+endNum : 6
+step : 3
+n_jobs : 8
+n_wordsinTopic : 30
+
+#LDA hyper-parameters
+lda_hyperparams :
+    - eta : [0.01]
+      alpha : [0.1]
+      filter_no_below : [10]
+      filter_no_above : [0.5]
+      passes : [40]
+      iters : [500]
+
+---
+
+# For stage 2.
+RESULT_PATH : "./Results/"
+LDA_RESULT_IDX : "[1]LDA/0/" # <- piz change the /index/ after you choose
+
+# Enter the name of topic after running stage1 and interpreting the word list of each topic
+#TopicList : ["Location", "View", "Breakfast", "Sleep Quality", "Bathroom", "Service", "Check", "Value", "Internet"]
+TopicList : ["Location", "View", "Breakfast"]
+
+# set random state
+random_state: 0
+# set the number of CPUs
+n_jobs: -1
+# for K fold cross validation
+n_splits : 5
+# set model hyperparameter for tunning
+model_hyperparams:
+    - model: 'LogisticRegression'
+      param: 
+        - penalty : ['none']
+    - model: 'MLPClassifier'
+      param:
+        - hidden_layer_sizes : ['(128,64)', '(32,64,128,64,32)','(256,)']
+          activation : ['relu']
+          learning_rate_init : [0.001, 0.005]
+          shuffle : [True]
+          solver : ['adam']
+          batch_size : [64]
+          learning_rate : ['adaptive']
+          max_iter : [1000,3000]
+
+    - model: 'RandomForestClassifier'
+      param:
+        - n_estimators : [10,100]
+          max_depth : [6,8,10,12]
+          min_samples_leaf : [8,12,18]
+          min_samples_split : [8,16,20]
+
+    - model : 'LGBMClassifier'
+      param:
+        - num_leaves : [10, 40]
+          max_depth : [6,8,10,12]
+          objective : ['binary']
+          metric : ['auc']
+          verbosity : [-1]
+
+# number of samples for SAGE
+n_samples : 512
