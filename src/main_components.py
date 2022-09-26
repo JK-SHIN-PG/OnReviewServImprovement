@@ -79,7 +79,7 @@ def CreateReviewFeatureMatrix(TopicNounMatrix, ReviewTokenList, ReviewList):
     NumTopic = len(TopicNounMatrix)
     ReviewFeatureMatrix = []
     
-    for r_idx, review in enumerate(tqdm(ReviewTokenList)):
+    for r_idx, review in enumerate(tqdm(ReviewTokenList, desc= "Creating review-feature matrix...")):
         
         SentenceFeatureMatrix = [0]*NumTopic
         SentencecountMatrix = [0]*NumTopic

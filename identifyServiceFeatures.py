@@ -4,6 +4,12 @@ import imp
 import os
 import pickle
 import argparse
+import nltk
+nltk.download('stopwords')
+nltk.download('omw-1.4')
+nltk.download('punkt')
+nltk.download('averaged_perceptron_tagger')
+nltk.download('wordnet')
 from gensim import corpora
 from gensim.models.ldamodel import LdaModel
 from src.preprocessors import Preprocessor
@@ -82,5 +88,5 @@ if __name__ == "__main__":
         with open(DIRPATH + "TopicNounList.pkl", 'wb') as file:
             pickle.dump(resultC, file)
 
-    print("Finish...")
+    print("Finished...")
 

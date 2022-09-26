@@ -7,19 +7,27 @@
 
 - **Our Environment**
   - os : Ubuntu 18.04 (we didn't check this code works in Window os environment)  
-  - Python >= 3.7  
+  - Python == 3.7  
 
 we recommend to create new virtual environment. 
 
 ```bash
 conda create -n 'env_name' python=3.7 
-source activate 'env_name'
+conda activate 'env_name'
+# (or) source activate 'env_name'
+```
+
+```bash
+git clone https://github.com/ServEngKD/OnReviewServImprovement.git
+cd OnReviewServImprovement/
 ```
 
 Run the below code to install the required package for this implementation.
 ```bash
+#(if you need) pip install --upgrade pip
 pip install -r requirements.txt
 ```
+
 ### Code structure
 ```bash
 root
@@ -45,6 +53,8 @@ Before you run the below code, please check the `Params.yaml` file.
 In `Params.yaml`, you can set the hyper-parameters for our framework and custom data path.
 In this implementation, grid search was performed to find optimal LDA and ML models. So, you have to set the candidates of each hyperparameter of both models.
 Also, you can change the name of `.yaml` file. If you change it, please enter the file name at `--ymal="ymal_name"` in the below codes.
+
+If you want to implement this framework for your review datasets (star rating is required), Modify `CustomizedPreprocessor` in `/src/preprocessors.py` and `CUSTDATA_PATH` in `Params.yaml`.
 
 ## [1] Review data preprocessing and service feature identification
 

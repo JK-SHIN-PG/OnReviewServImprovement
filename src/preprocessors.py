@@ -3,10 +3,11 @@ import gzip
 import json
 import nltk
 import pickle
-nltk.download('punkt')
 nltk.download('stopwords')
 nltk.download('omw-1.4')
+nltk.download('punkt')
 nltk.download('averaged_perceptron_tagger')
+nltk.download('wordnet')
 from nltk.corpus import stopwords
 from nltk.stem import WordNetLemmatizer
 from nltk.stem import PorterStemmer
@@ -228,9 +229,6 @@ class Preprocessor:
 
     def preprocessing(self):
         self.OriginalReviewData, self.StarRatingData = self.getRawData()
-
-        with open("./TempData/StarRating.pkl", 'wb') as f:
-            pickle.dump(self.StarRatingData, f)
         
         ReviewSentenceList = []
         ReviewSentenceWordList = []

@@ -123,3 +123,4 @@ if __name__ == "__main__":
     Performances = getPerformance(X_test)
     plot_IPA(Performances, Importances, TopicNameList, DIRPATH2 + "IPA_Plot.png")
 
+    print("Finished...")
