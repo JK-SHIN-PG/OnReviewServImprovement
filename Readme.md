@@ -6,14 +6,16 @@
 ## Implementation
 
 - **Our Environment**
-  - os : Ubuntu 18.04 (we didn't check Window os environment)
-  - Python >= 3.7
+  - os : Ubuntu 18.04 (we didn't check Window os environment)  
+  - Python >= 3.7  
+
 we recommend to create new virtual environment. 
+
 ```bash
 conda create -n 'env_name' python=3.7 
 ```
 
-Run the below code to install required package for this implementation
+Run the below code to install the required package for this implementation.
 ```bash
 pip install -r requirement.txt
 ```
@@ -30,11 +32,11 @@ root
 │   └─ utils.py
 ├─Datasets
 │   └─ Custom
-│      └─***.**
+│      └─***.** (filename.type)
 └─Results
-    ├─ [1]LDA
-    ├─ [2]ML 
-    ├─ [3]IPA
+    ├─ [1]LDA - Result_Folder_for_each_combination
+    ├─ [2]ML - Hyper_paramenter_Tunning_Reports
+    ├─ [3]IPA - Plor_for_Importance_Performance_Analysis
     └─ etc.
 ```
 ## Note
