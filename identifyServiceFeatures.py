@@ -35,7 +35,7 @@ if __name__ == "__main__":
     RESULT_PATH = arg1["RESULT_PATH"]
 
     ensure_path(RESULT_PATH)
-    f = open(RESULT_PATH + "report.txt", "a")
+    f = open(RESULT_PATH + "[1]LDA/summary.txt", "a")
     f.write(str(arg1) + "\n")
     f.write("The number of combinations : {}\n".format(len(paramslist)))
     f.close()
@@ -71,7 +71,7 @@ if __name__ == "__main__":
         RawTopicTokenListC = TopicmodelC.print_topics(num_words=arg1["n_wordsinTopic"])
         resultC = parse_topic_token(RawTopicTokenListC)
         
-        f = open(RESULT_PATH + "report.txt", "a")
+        f = open(RESULT_PATH + "[1]LDA/summary.txt", "a")
         f.write("idx : [{}]\toptimal number : {}\t coherence score : {}\t".format(idx, OptNumfromCV, round(maxCV,4)))
         f.write(str(params) + "\n")
         f.close()

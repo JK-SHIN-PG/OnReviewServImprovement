@@ -6,7 +6,7 @@
 ## Implementation
 
 - **Our Environment**
-  - os : Ubuntu 18.04 (we didn't check this code works in Window os environment)  
+  - os : Ubuntu 18.04
   - Python == 3.7  
 
 we recommend to create new virtual environment. 
@@ -57,14 +57,26 @@ Also, you can change the name of `.yaml` file. If you change it, please enter th
 If you want to implement this framework for your review datasets (star rating is required), Modify `CustomizedPreprocessor` in `/src/preprocessors.py` and `CUSTDATA_PATH` in `Params.yaml`.
 
 ## [1] Review data preprocessing and service feature identification
+- Execution list
+  * Text preprocessing
+  * LDA Topic modeling
 
+Running the code below generates preprocessed datasets in `/Results` folder and a `summary.txt` and report with a words-topic list for each combination of candidates in each folder in `/Results/[1]LDA/`.
 ```bash
 python identifyServiceFeatures.py --yaml="Params"
 ```
-After running the code, we have to interpret the results of LDA and name each topics.
-You have to enter the name of each topic in `TopicList` in `yaml`file
+
+Referring to the `summary.txt` and words-topic list in `report.txt`, choose the best results of LDA topic modeling and name each topic.
+Then, Enter the name of each topic in `TopicList` in `yaml`file
 
 ## [2~3] Global importance estimation using optimal prediction model
+- Execution list
+  * Preparing the datasets for training (creating review-feature matrix and spliting datasets)
+  * K cross validation for hyper-parameter tuning and finding optimal prediction model
+  * Estimation of global importance of service features
+  * Importance Performance Analysis (plot)
+
+Running the code below generates `report.txt` that record the performance of each model in `/[2]ML` and save the plot for Importance Performance Analysis (IPA) in `[3]IPA` folder.
 ```bash
 python estimateImportance.py --yaml="Params"
 ```
