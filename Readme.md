@@ -10,12 +10,12 @@ Run the below code to set the environment
 ```bash
 pip install -r requirement.txt
 ```
-
+- Code structure
 ```bash
 root
 ├─Params.yaml
-├─estimateImportance.py
 ├─identifyServiceFeatures.py
+├─estimateImportance.py
 ├─src
 │   ├─ __init__.py
 │   ├─ main_components.py
