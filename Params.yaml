@@ -5,7 +5,7 @@ CUSTDATA_PATH : './Datasets/Custom/HotelRev_less4STAR.xlsx'
 n_reviews : -1
 #LDA Tuning
 startNum : 3
-endNum : 6
+endNum : 12
 step : 3
 n_jobs : 8
 n_wordsinTopic : 30
@@ -14,10 +14,11 @@ n_wordsinTopic : 30
 lda_hyperparams :
     - eta : [0.01]
       alpha : [0.1]
-      filter_no_below : [10]
-      filter_no_above : [0.5]
-      passes : [40]
-      iters : [500]
+      filter_no_below : [10,30]
+      filter_no_above : [0.5, 0.7, 0.9]
+      passes : [40, 100, 200]
+      iters : [500, 1000, 3000]
+
 
 ---
 
