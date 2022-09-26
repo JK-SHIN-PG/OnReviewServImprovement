@@ -76,7 +76,7 @@ Then, Enter the name of each topic in `TopicList` in `yaml`file
   * Estimation of global importance of service features
   * Importance Performance Analysis (plot)
 
-Running the code below generates `report.txt` that record the performance of each model in `/[2]ML` and save the plot for Importance Performance Analysis (IPA) in `[3]IPA` folder.
+Running the code below generates `report.txt` that record the performance of each model in `/[2]ML` folder and saves the plot for Importance Performance Analysis (IPA) in `/[3]IPA` folder.
 ```bash
 python estimateImportance.py --yaml="Params"
 ```
