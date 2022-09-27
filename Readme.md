@@ -17,7 +17,7 @@ conda activate 'env_name'
 # (or) source activate 'env_name'
 ```
 
-Run this code to clone this code into your local environment.  
+Run this code to clone the files into your local environment.  
 ```bash
 git clone https://github.com/ServEngKD/OnReviewServImprovement.git
 cd OnReviewServImprovement/
@@ -51,7 +51,7 @@ root
 ```
 ## Note
 Before you run the below code, please check the `Params.yaml` file.
-In `Params.yaml`, you can set the hyper-parameters for our framework and custom data path.
+In `Params.yaml`, you can set the parameters for our framework and custom data path.
 In this implementation, grid search was performed to find optimal LDA and ML models. So, you have to set the candidates of each hyperparameter of both models.
 Also, you can change the name of `.yaml` file. If you change it, please enter the file name at `--ymal="ymal_name"` in the below codes.
 

@@ -3,16 +3,17 @@ RESULT_PATH : "./Results/"
 CUSTDATA_PATH : './Datasets/Custom/tripadvisor_hotel_reviews.csv'
 #USE_DATATYPE = ['Amazon', 'Hotel_review', 'Yelp', 'Custom']
 USE_DATATYPE : 'Custom'
-#num_reviews == -1 : whole reviews
-n_reviews : -1
+# the number of reviews
+n_reviews : -1 #num_reviews == -1 : whole reviews
 #LDA Tuning
 startNum : 3
 endNum : 12
 step : 3
-n_jobs : 8
+# the number of CPUs to work for LDA topic modeling
+n_jobs : 8 
 n_wordsinTopic : 30
 
-#LDA hyper-parameters
+# the candidates of LDA hyper-parameters
 lda_hyperparams :
     - eta : [0.01]
       alpha : [0.1]
@@ -32,13 +33,13 @@ LDA_RESULT_IDX : "[1]LDA/0/" # <- piz change the /index/ after you choose
 #TopicList : ["Location", "View", "Breakfast", "Sleep Quality", "Bathroom", "Service", "Check", "Value", "Internet"]
 TopicList : ["Location", "View", "Breakfast"]
 
-# set random state
+# random state
 random_state: 0
-# set the number of CPUs
+# the number of CPUs to work for training the ML models
 n_jobs: -1
-# for K fold cross validation
+# the number of folds (K) for cross validation
 n_splits : 5
-# set model hyperparameter for tunning
+# the candidates of model hyperparameter
 model_hyperparams:
     - model: 'LogisticRegression'
       param: 
@@ -69,5 +70,5 @@ model_hyperparams:
           metric : ['auc']
           verbosity : [-1]
 
-# number of samples for SAGE
+# the number of samples for SAGE
 n_samples : 512
