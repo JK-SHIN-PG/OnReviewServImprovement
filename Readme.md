@@ -9,8 +9,7 @@
   - os : Ubuntu 18.04
   - Python == 3.7  
 
-we recommend to create new virtual environment.   
-Run this code to create your own virtual environment.
+Run this code to create your own virtual environment. (you can skip it, but we recommend creating a new virtual environment for this implementation)
 ```bash
 conda create -n 'env_name' python=3.7 
 conda activate 'env_name'
@@ -52,18 +51,18 @@ root
 ## Note
 Before you run the below code, please check the `Params.yaml` file.
 In `Params.yaml`, you can set the parameters for our framework and custom data path.
-In this implementation, grid search was performed to find optimal LDA and ML models. So, you have to set the candidates of each hyperparameter of both models.
+In this implementation, a grid search was performed to find optimal LDA and ML models. So, you have to set the candidates of each hyperparameter of both models.
 Also, you can change the name of `.yaml` file. If you change it, please enter the file name at `--ymal="ymal_name"` in the below codes.
 
 Due to the copyright, open source review data is provided for this implementation although not used in our paper.
-If you want to implement this framework for your review datasets (star rating is required), Just modify `ModifiedCustomizedPreprocessor` in `identifyServiceFeatures.py` and `USE_DATATYPE == "Custom"` & `CUSTDATA_PATH` in `Params.yaml` to fit your datasets. For this, please refer to the example code in `ModifiedCustomizedPreprocessor`. 
+To implement this framework for your review datasets (star rating required), just modify `ModifiedCustomizedPreprocessor` in `identifyServiceFeatures.py` and `USE_DATATYPE == "Custom"` & `CUSTDATA_PATH` in `Params.yaml` to fit your datasets. For this, please refer to the example code in `ModifiedCustomizedPreprocessor`. 
 
 ## [1] Review data preprocessing and service feature identification
 - Execution list
   * Text preprocessing
   * LDA Topic modeling
 
-Running the code below generates preprocessed datasets in `/Results` folder and a `summary.txt` and report with a words-topic list for each combination of candidates in each folder in `/Results/[1]LDA/`.
+Running the code below generates preprocessed datasets in `/Results` folder and a `summary.txt` and report with a words-topic list for each combination of candidates in each folder in `/Results/[1]LDA/`.  
 ```bash
 python identifyServiceFeatures.py --yaml="Params"
 ```
