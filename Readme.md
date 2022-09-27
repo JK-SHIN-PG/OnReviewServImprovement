@@ -6,8 +6,9 @@
 ## Implementation
 
 - **Our Environment**
-  - os : Ubuntu 18.04
-  - Python == 3.7  
+  - OS : Ubuntu 18.04 (we checked this code file works on Window OS)
+  - python == 3.7  
+  - conda >= 4.10  
 
 Run this code to create your own virtual environment. (you can skip it, but we recommend creating a new virtual environment for this implementation)
 ```bash
