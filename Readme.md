@@ -48,7 +48,7 @@ root
     ├─ [3]IPA - Plot_for_Importance_Performance_Analysis
     └─ etc.
 ```
-## Note
+### Note
 Before you run the below code, please check the `Params.yaml` file.
 In `Params.yaml`, you can set the parameters for our framework and custom data path.
 In this implementation, a grid search was performed to find optimal LDA and ML models. So, you have to set the candidates of each hyperparameter of both models.
@@ -57,7 +57,7 @@ Also, you can change the name of `.yaml` file. If you change it, please enter th
 Due to the copyright, open source review data is provided for this implementation although not used in our paper.
 To implement this framework for your review datasets (star rating required), just modify `ModifiedCustomizedPreprocessor` in `identifyServiceFeatures.py` and `USE_DATATYPE == "Custom"` & `CUSTDATA_PATH` in `Params.yaml` to fit your datasets. For this, please refer to the example code in `ModifiedCustomizedPreprocessor`. 
 
-## [1] Review data preprocessing and service feature identification
+### [1] Review data preprocessing and service feature identification
 - Execution list
   * Text preprocessing
   * LDA Topic modeling
@@ -70,7 +70,7 @@ python identifyServiceFeatures.py --yaml="Params"
 Referring to the `summary.txt` and words-topic list in `report.txt`, choose the best results of LDA topic modeling and name each topic.
 After that, Enter the folder name at `LDA_RESULT_IDX` and the name of each topic in `TopicList` in `yaml`file.
 
-## [2~3] Global importance estimation using optimal prediction model
+### [2~3] Global importance estimation using optimal prediction model
 - Execution list
   * Preparing the datasets for training (creating review-feature matrix and spliting datasets)
   * K cross validation for hyper-parameter tuning and finding optimal prediction model
