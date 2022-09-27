@@ -62,7 +62,7 @@ To implement this framework for your review datasets (star rating required), jus
   * Text preprocessing
   * LDA Topic modeling
 
-Running the code below generates preprocessed datasets in `/Results` folder and a `summary.txt` and report with a words-topic list for each combination of candidates in each folder in `/Results/[1]LDA/`.  
+Running the code below generates preprocessed datasets in `/Results` folder and a `summary.txt` and `report.txt` with a words-topic list for each combination of candidates in each folder in `/Results/[1]LDA/`.  
 ```bash
 python identifyServiceFeatures.py --yaml="Params"
 ```
