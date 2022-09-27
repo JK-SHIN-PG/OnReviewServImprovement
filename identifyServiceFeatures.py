@@ -17,7 +17,7 @@ from src.main_components import search_OptimalNumTopics
 from src.utils import parse_params, getCombination, ensure_path, parse_topic_token
 import pandas as pd
 
-# [inheritance] class of CustomizedPreprocessor in src.preprocessors
+# [inheritance] child class of CustomizedPreprocessor in src.preprocessors
 # just modify this preprocessor if you use your own datasets
 class ModifiedCustomizedPreprocessor(CustomizedPreprocessor):
     def __init__(self, path, num_reviews):
