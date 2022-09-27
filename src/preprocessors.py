@@ -84,7 +84,7 @@ def preprocessReview(review):
 class Amazon_preprocessor:
 
     def __init__(self,num_reviews):
-        self.path = PATH_BY_DATASET['Amazon_movies']
+        self.path = PATH_BY_DATASET['Amazon']
         self.num_reviews = num_reviews
     def parse(self):
         g = gzip.open(self.path, 'r')
@@ -205,7 +205,6 @@ class CustomizedPreprocessor:
         score_list = (review_score_df.loc[:,"rating"]//10).to_list()
         if self.num_reviews != -1:
             score_list = score_list[:self.num_reviews]
-        #review_list = star2_review_list + star3_review_list + star4_review_list
 
         return review_list, score_list
 
@@ -238,9 +237,6 @@ class Preprocessor:
             ReviewSentenceList.append(SentenceList)
             ReviewSentenceWordList.append(SentenceWordList)
             ReviewNounList.append(NounList)
-
-        #drop duplicates
-        
 
         return ReviewSentenceList, ReviewSentenceWordList, ReviewNounList
 

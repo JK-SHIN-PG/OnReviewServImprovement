@@ -1,6 +1,8 @@
 # For stage 1.
 RESULT_PATH : "./Results/"
-CUSTDATA_PATH : './Datasets/Custom/HotelRev_less4STAR.xlsx'
+CUSTDATA_PATH : './Datasets/Custom/tripadvisor_hotel_reviews.csv'
+#USE_DATATYPE = ['Amazon', 'Hotel_review', 'Yelp', 'Custom']
+USE_DATATYPE : 'Custom'
 #num_reviews == -1 : whole reviews
 n_reviews : -1
 #LDA Tuning

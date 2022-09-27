@@ -9,20 +9,21 @@
   - os : Ubuntu 18.04
   - Python == 3.7  
 
-we recommend to create new virtual environment. 
-
+we recommend to create new virtual environment.   
+Run this code to create your own virtual environment.
 ```bash
 conda create -n 'env_name' python=3.7 
 conda activate 'env_name'
 # (or) source activate 'env_name'
 ```
 
+Run this code to clone this code into your local environment.  
 ```bash
 git clone https://github.com/ServEngKD/OnReviewServImprovement.git
 cd OnReviewServImprovement/
 ```
 
-Run the below code to install the required package for this implementation.
+Run the below code to install the required package for this implementation.  
 ```bash
 #(if you need) pip install --upgrade pip
 pip install -r requirements.txt
@@ -54,7 +55,8 @@ In `Params.yaml`, you can set the hyper-parameters for our framework and custom 
 In this implementation, grid search was performed to find optimal LDA and ML models. So, you have to set the candidates of each hyperparameter of both models.
 Also, you can change the name of `.yaml` file. If you change it, please enter the file name at `--ymal="ymal_name"` in the below codes.
 
-If you want to implement this framework for your review datasets (star rating is required), Modify `CustomizedPreprocessor` in `/src/preprocessors.py` and `CUSTDATA_PATH` in `Params.yaml`.
+Due to the copyright, open source review data is provided for this implementation although not used in our paper.
+If you want to implement this framework for your review datasets (star rating is required), Just modify `ModifiedCustomizedPreprocessor` in `identifyServiceFeatures.py` and `USE_DATATYPE == "Custom"` & `CUSTDATA_PATH` in `Params.yaml` to fit your datasets. For this, please refer to the example code in `ModifiedCustomizedPreprocessor`. 
 
 ## [1] Review data preprocessing and service feature identification
 - Execution list
@@ -67,7 +69,7 @@ python identifyServiceFeatures.py --yaml="Params"
 ```
 
 Referring to the `summary.txt` and words-topic list in `report.txt`, choose the best results of LDA topic modeling and name each topic.
-After that, Enter the folder name at `LDA_RESULT_IDX` and the name of each topic in `TopicList` in `yaml`file and 
+After that, Enter the folder name at `LDA_RESULT_IDX` and the name of each topic in `TopicList` in `yaml`file.
 
 ## [2~3] Global importance estimation using optimal prediction model
 - Execution list
@@ -76,7 +78,7 @@ After that, Enter the folder name at `LDA_RESULT_IDX` and the name of each topic
   * Estimation of global importance of service features
   * Importance Performance Analysis (plot)
 
-Running the code below generates `report.txt` that record the performance of each model in `/[2]ML` folder and saves the plot for Importance Performance Analysis (IPA) in `/[3]IPA` folder.
+Running the code below generates `report.txt` that records the performance of each model in `/[2]ML` folder and saves the plot for Importance Performance Analysis (IPA) in `/[3]IPA` folder.
 ```bash
 python estimateImportance.py --yaml="Params"
 ```
