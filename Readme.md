@@ -12,6 +12,9 @@
 Run this code to create your own virtual environment. (you can skip it, but we recommend creating a new virtual environment for this implementation)
 ```bash
 conda create -n 'env_name' python=3.7 
+```
+Activate your environment
+```bash
 conda activate 'env_name'
 # (or) source activate 'env_name'
 ```
@@ -19,6 +22,9 @@ conda activate 'env_name'
 Run this code to clone the files into your local environment.  
 ```bash
 git clone https://github.com/ServEngKD/OnReviewServImprovement.git
+```
+Move to `OnReviewServImprovement` folder
+```bash
 cd OnReviewServImprovement/
 ```
 
