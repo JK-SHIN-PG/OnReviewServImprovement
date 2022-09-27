@@ -76,6 +76,7 @@ if __name__ == "__main__":
     with open(RESULT_PATH + "StarRating.pkl", 'wb') as f:
         pickle.dump(StarRating, f)
 
+    # 2. Service feature identification (LDA Topic modeling)
     for idx, params in enumerate(paramslist):
         print("progress...[{}/{}]".format(idx+1, len(paramslist)))
         dictionary = corpora.Dictionary(ReviewNounMatrix)

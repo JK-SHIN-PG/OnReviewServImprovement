@@ -18,6 +18,7 @@ from src.utils import *
 # TopicNounMatrix : [Topic, Noun]
 # ReviewToken List : [Review, sentence, word]
 # Reveiw List : [Review, sentence]
+
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("--yaml", type=str, default='Params')
@@ -31,7 +32,9 @@ if __name__ == "__main__":
     f = open(DIRPATH + "report.txt", "a")
     f.write(str(args) + "\n")
     f.close()
-    
+
+    #3. Preparing the datasets
+
     # output Review Feature matrix
     TopicNounMatrix = pickle.load(open(args["RESULT_PATH"] + args["LDA_RESULT_IDX"] + "TopicNounList.pkl", "rb"))
     
@@ -41,7 +44,6 @@ if __name__ == "__main__":
     ReviewTokenList = pickle.load(open(args["RESULT_PATH"] + "ReviewSentenceWordMatrix.pkl", "rb"))
     ReviewList = pickle.load(open(args["RESULT_PATH"] + "ReviewSentenceMatrix.pkl", "rb")) # for sentiment
     RatingList = pickle.load(open(args["RESULT_PATH"] + "StarRating.pkl", "rb")) # for sentiment
-    
 
     ReviewFeatureMatrix = CreateReviewFeatureMatrix(TopicNounMatrix, ReviewTokenList, ReviewList)
 
@@ -69,7 +71,7 @@ if __name__ == "__main__":
     X_test = np.array(input_X.iloc[thres:, :])
     y_test = np.array(target_y.iloc[thres:])
 
-
+    # 4. training the ML model and find optimal model
     # Possible to add the model that you want
     modelDic = {'LogisticRegression' : LogisticRegression(), 'MLPClassifier' : MLPClassifier(), 'RandomForestClassifier': RandomForestClassifier(), 'LGBMClassifier' : LGBMClassifier()}
 
@@ -102,8 +104,6 @@ if __name__ == "__main__":
         trainedModelDic[argmodel['model']] = trainedModel
         accResults[argmodel['model']] = acc
 
-    # Sage for estimate importance of the best model
-
     # find best model
     bestmodel = [key for key, acc in accResults.items() if max(accResults.values()) == acc][0]
     best_params = trainedModelDic[bestmodel].best_params_
@@ -113,7 +113,7 @@ if __name__ == "__main__":
     f.write("Best model : {}\tacc : {}%\tparams : {}\n".format(bestmodel, round(acc*100,2), best_params))
     f.close()
     
-    #get importance
+    # 5. Global importance estimation using SAGE
 
     DIRPATH2 = args["RESULT_PATH"] + "[3]IPA/"
     ensure_path(DIRPATH2)
