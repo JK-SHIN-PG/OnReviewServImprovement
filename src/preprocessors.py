@@ -2,7 +2,6 @@ import pandas as pd
 import gzip
 import json
 import nltk
-import pickle
 nltk.download('stopwords')
 nltk.download('omw-1.4')
 nltk.download('punkt')
@@ -14,7 +13,6 @@ from nltk.stem import PorterStemmer
 from nltk import pos_tag
 from tqdm import tqdm
 import re
-from sklearn.feature_extraction.text import TfidfVectorizer, CountVectorizer
 
 
 def getFirstletterPos(pos_tag):
@@ -239,16 +237,6 @@ class Preprocessor:
             ReviewNounList.append(NounList)
 
         return ReviewSentenceList, ReviewSentenceWordList, ReviewNounList
-
-    def tfidf(self, text):
-        tfidv = TfidfVectorizer().fit(text)
-        vectors = tfidv.transform(text).toarray()
-        return vectors
-
-    def bagofwords(self, text):
-        bow = CountVectorizer().fit(text)
-        vectors = bow.transform(text).toarray()
-        return vectors
 
 # Dataset-preprocessor dictionary
 PREPROCESSOR_BY_DATASET = {
