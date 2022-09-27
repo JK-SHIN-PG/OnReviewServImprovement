@@ -48,7 +48,7 @@ root
 │   └─ utils.py
 ├─Datasets
 │   └─ Custom
-│      └─***.** (filename.type)
+│      └─***.** (filename.extension)
 └─Results
     ├─ [1]LDA - Result_Folder_for_each_combination
     ├─ [2]ML - Hyper_parameter_tuning_Reports
