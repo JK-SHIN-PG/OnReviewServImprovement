@@ -58,7 +58,7 @@ root
 ### Note
 Before you run the below code, please check the `Params.yaml` file.
 In `Params.yaml`, you can set the parameters for our framework and custom data path.
-In this implementation, a grid search was performed to find optimal LDA and ML models. So, you have to set the candidates of each hyperparameter of both models.
+Since a grid search will be performed to find optimal LDA and ML models, you have to set the candidates of each hyperparameter of both models.
 Also, you can change the name of `.yaml` file. If you change it, please enter the file name at `--ymal="ymal_name"` in the below codes.
 
 Due to the copyright, we cannot provide the review data that we employed for our paper. Instead, we provide open-source review data for this implementation.
