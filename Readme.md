@@ -62,7 +62,7 @@ In this implementation, a grid search was performed to find optimal LDA and ML m
 Also, you can change the name of `.yaml` file. If you change it, please enter the file name at `--ymal="ymal_name"` in the below codes.
 
 Due to the copyright, we cannot provide the review data that we employed for our paper. Instead, we provide open-source review data for this implementation.
-To implement this framework for your review datasets (star rating required), just modify `ModifiedCustomizedPreprocessor` in `identifyServiceFeatures.py` and `USE_DATATYPE == "Custom"` & `CUSTDATA_PATH` in `Params.yaml` to fit your datasets. For this, please refer to the example code in `ModifiedCustomizedPreprocessor`. 
+To implement this framework for your review datasets (star rating required), just modify `ModifiedCustomizedPreprocessor` in `identifyServiceFeatures.py` to fit your datasets, and change `USE_DATATYPE` to `"Custom"` and `CUSTDATA_PATH` in `Params.yaml` . For this, please refer to the example code in `ModifiedCustomizedPreprocessor`. 
 
 ### [1] Review data preprocessing and service feature identification
 - Execution list
