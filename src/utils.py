@@ -72,7 +72,7 @@ def plot_IPA(Performance, Importance, TopicNameList, filename):
     plt.figure(figsize=(8,8))
     plt.scatter(Performance, Importance, color = 'g')
     for idx, topic_name in enumerate(TopicNameList):
-        plt.text(Performance[idx]+0.005, Importance[idx]+0.005, topic_name)
+        plt.text(Performance[idx]+0.0005, Importance[idx]+0.0005, topic_name)
 
     plt.axhline(MeanImportance, color = 'b', linestyle = '--')
     plt.axvline(MeanPerformance, color = 'b', linestyle = '--')
