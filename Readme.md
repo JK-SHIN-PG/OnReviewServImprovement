@@ -22,7 +22,7 @@ conda activate 'env_name'
 
 Run this code to clone the files into your local environment.  
 ```bash
-git clone https://github.com/ServEngKD/OnReviewServImprovement.git
+git clone https://github.com/SQwithIML/OnReviewServImprovement.git
 ```
 Move to `OnReviewServImprovement` folder
 ```bash
