@@ -1,4 +1,4 @@
-# Online Review Mining Meets Interpretable Machine Learning for Customer-Oriented Service Quality Management
+# Determining Directions of Service Quality Management using Online Review Mining with Interpretable Machine Learning
 
 ## Explanation
 - Under construction
