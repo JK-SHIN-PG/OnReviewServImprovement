@@ -9,11 +9,11 @@
 ## Implementation
 
 - **Our Environment**
-  - OS: Ubuntu 18.04 (we checked this code file works on Window OS)
+  - OS: Ubuntu 18.04 (we checked this code file works on Windows OS)
   - python == 3.7  
   - conda >= 4.10  
 
-Run this code to create your own virtual environment. (you can skip it, but we recommend creating a new virtual environment for this implementation)
+Run this code to create your virtual environment. (you can skip it, but we recommend creating a new virtual environment for this implementation)
 ```bash
 conda create -n 'env_name' python=3.7 
 ```
@@ -27,7 +27,7 @@ Run this code to clone the files into your local environment.
 ```bash
 git clone https://github.com/SQwithIML/OnReviewServImprovement.git
 ```
-Move to `OnReviewServImprovement` folder
+Move to the `OnReviewServImprovement` folder
 ```bash
 cd OnReviewServImprovement/
 ```
@@ -78,17 +78,17 @@ python identifyServiceFeatures.py --yaml="Params"
 ```
 
 Referring to the `summary.txt` and words-topic list in `report.txt`, choose the best results of LDA topic modeling and name each topic.
-After that, Enter the folder name at `LDA_RESULT_IDX` and the name of each topic in `TopicList` in `yaml`file.
+After that, Enter the folder name at `LDA_RESULT_IDX` (for stage 2) and the name of each topic in `TopicList` in the `yaml`file.
+Note that the number of topics in the 'TopicList' must match the number of topics in the best LDA model you choose.
 
-### [2~3] Global importance estimation using optimal prediction model
+### [2~3] Global importance estimation using the optimal prediction model
 - Execution list
-  * Preparing the datasets for training (creating review-feature matrix and spliting datasets)
-  * K cross validation for hyper-parameter tuning and finding optimal prediction model
-  * Estimation of global importance of service features
+  * Preparing the datasets for training (creating a review-feature matrix and splitting datasets)
+  * K cross-validation for hyper-parameter tuning and finding optimal prediction model
+  * Estimation of the global importance of service features
   * Importance Performance Analysis (plot)
 
 Running the code below generates `report.txt` that records the performance of each model in `/[2]ML` folder and saves the plot for Importance Performance Analysis (IPA) in `/[3]IPA` folder.
 ```bash
 python estimateImportance.py --yaml="Params"
 ```
-
