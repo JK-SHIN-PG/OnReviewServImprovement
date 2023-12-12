@@ -79,14 +79,13 @@ def CreateReviewFeatureMatrix(TopicNounMatrix, ReviewTokenList, ReviewList):
     NumTopic = len(TopicNounMatrix)
     ReviewFeatureMatrix = []
     
-    for r_idx, review in enumerate(tqdm(ReviewTokenList)):
-        
+    for r_idx, review in enumerate(tqdm(ReviewTokenList, desc= "Creating review-feature matrix...")):   
         SentenceFeatureMatrix = [0]*NumTopic
         SentencecountMatrix = [0]*NumTopic
         for s_idx, sentence in enumerate(review):
             WordFeatureMatrix = [0]*NumTopic
             WordcountMatrix = [0]*NumTopic
-            for w_idx, word in enumerate(sentence): # pos tagged data 인지 확인
+            for w_idx, word in enumerate(sentence):
                 for t_idx, topicwordlist in enumerate(TopicNounMatrix):
                     if word in topicwordlist:
                         score = analyser.polarity_scores(ReviewList[r_idx][s_idx])['compound']
