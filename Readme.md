@@ -1,12 +1,16 @@
 # Determining Directions of Service Quality Management using Online Review Mining with Interpretable Machine Learning
 
 ## Explanation
-- Under construction
+-	Identifying service features and estimating their importance are crucial for service management.
+-	We propose a systematic framework for estimating the importance of service features using online review mining with interpretable machine learning.
+-	LDA and VADER are utilized to extract service features and calculate satisfaction of each feature from online reviews, respectively.
+-	For estimation of feature importance, machine learning models and SAGE are used to learn and interpret the nonlinear relationship between service features satisfaction and overall customer satisfaction.
+
 
 ## Implementation
 
 - **Our Environment**
-  - OS : Ubuntu 18.04 (we checked this code file works on Window OS)
+  - OS: Ubuntu 18.04 (we checked this code file works on Window OS)
   - python == 3.7  
   - conda >= 4.10  
 
