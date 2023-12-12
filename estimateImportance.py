@@ -42,8 +42,8 @@ if __name__ == "__main__":
         raise TopicNameListError
     
     ReviewTokenList = pickle.load(open(args["RESULT_PATH"] + "ReviewSentenceWordMatrix.pkl", "rb"))
-    ReviewList = pickle.load(open(args["RESULT_PATH"] + "ReviewSentenceMatrix.pkl", "rb")) # for sentiment
-    RatingList = pickle.load(open(args["RESULT_PATH"] + "StarRating.pkl", "rb")) # for sentiment
+    ReviewList = pickle.load(open(args["RESULT_PATH"] + "ReviewSentenceMatrix.pkl", "rb")) # for sentiment (service feature satisfaction)
+    RatingList = pickle.load(open(args["RESULT_PATH"] + "StarRating.pkl", "rb")) # for overall satisfaction
 
     ReviewFeatureMatrix = CreateReviewFeatureMatrix(TopicNounMatrix, ReviewTokenList, ReviewList)
 
