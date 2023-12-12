@@ -5,7 +5,7 @@ from tqdm import tqdm
 from vaderSentiment.vaderSentiment import SentimentIntensityAnalyzer
 import numpy as np
 from tqdm import tqdm
-
+from sklearn.metrics import accuracy_score
 
 def calculate_Coherence(model, corpus, dictionary, ReviewNoun):
     
@@ -79,14 +79,14 @@ def CreateReviewFeatureMatrix(TopicNounMatrix, ReviewTokenList, ReviewList):
     NumTopic = len(TopicNounMatrix)
     ReviewFeatureMatrix = []
     
-    for r_idx, review in enumerate(tqdm(ReviewTokenList, desc= "Creating review-feature matrix...")):
+    for r_idx, review in enumerate(tqdm(ReviewTokenList)):
         
         SentenceFeatureMatrix = [0]*NumTopic
         SentencecountMatrix = [0]*NumTopic
         for s_idx, sentence in enumerate(review):
             WordFeatureMatrix = [0]*NumTopic
             WordcountMatrix = [0]*NumTopic
-            for w_idx, word in enumerate(sentence):
+            for w_idx, word in enumerate(sentence): # pos tagged data 인지 확인
                 for t_idx, topicwordlist in enumerate(TopicNounMatrix):
                     if word in topicwordlist:
                         score = analyser.polarity_scores(ReviewList[r_idx][s_idx])['compound']
@@ -127,10 +127,29 @@ def CreateReviewFeatureMatrix(TopicNounMatrix, ReviewTokenList, ReviewList):
 def getPerformance(input):
     return np.array(input).mean(axis=0)
 
-def estimateImportance(trainedModel, X_input, y_output, TopicNameList, args):
+def estimateImportance(TopicNameList, modelDic, bestmodel, best_params, CV_option, X_train, y_train, args):
+    performance_list = []
+    importance_list = np.empty((0,len(TopicNameList)))
+    for train_index, test_index in CV_option.split(X_train):
+        kx_train = X_train[train_index]
+        ky_train = y_train[train_index]
+        kx_test = X_train[test_index]
+        ky_test = y_train[test_index]
+        k_Model = modelDic[bestmodel].set_params(**best_params).fit(kx_train, ky_train)
+        pred_test = k_Model.predict(kx_test)
+        acc = accuracy_score(ky_test, pred_test)
+        performance_list.append(acc)
+        Importances = estimate_SAGE_values(k_Model, kx_test, ky_test, args)
+        importance_list = np.append(importance_list, np.expand_dims(Importances, 0), axis=0)
+
+    normalized_performance = np.array(performance_list) / np.sum(performance_list)
+    estimated_SAGE = np.matmul(normalized_performance, importance_list)
+    normalized_SAGE = estimated_SAGE / np.sum(estimated_SAGE)
+    return normalized_SAGE
+
+def estimate_SAGE_values(trainedModel, X_input, y_output, args):
     import sage
     imputer = sage.MarginalImputer(trainedModel, X_input[:args["n_samples"]])
     estimator = sage.PermutationEstimator(imputer, 'cross entropy')
     sage_values = estimator(X_input, y_output)
-    sage_values.plot(TopicNameList)
     return sage_values.values
