@@ -79,7 +79,7 @@ python identifyServiceFeatures.py --yaml="Params"
 
 Referring to the `summary.txt` and words-topic list in `report.txt`, choose the best results of LDA topic modeling and name each topic.
 After that, Enter the folder name at `LDA_RESULT_IDX` (for stage 2) and the name of each topic in `TopicList` in the `yaml`file.
-Note that the number of topics in the 'TopicList' must match the number of topics in the best LDA model you choose.
+Note that the number of topics in the 'TopicList' must match the number of topics of the best LDA model you choose.
 
 ### [2~3] Global importance estimation using the optimal prediction model
 - Execution list
