@@ -119,8 +119,8 @@ if __name__ == "__main__":
     ensure_path(DIRPATH2)
     if bestmodel == "LogisticRegression":
         Importances = trainedModel.coef_[0]
-    Importances = estimateImportance(trainedModel, X_train, y_train, TopicNameList, args)
-    Performances = getPerformance(X_train)
+    Importances = estimateImportance(trainedModel, X_test, y_test, TopicNameList, args)
+    Performances = getPerformance(X_test)
     plot_IPA(Performances, Importances, TopicNameList, DIRPATH2 + "IPA_Plot.png")
 
     print("Finished...")
