@@ -3,9 +3,8 @@
 ## Explanation
 -	Identifying service features and estimating their importance are crucial for service management.
 -	We propose a systematic framework for estimating the importance of service features using online review mining with interpretable machine learning.
--	LDA and VADER are utilized to extract service features and calculate satisfaction of each feature from online reviews, respectively.
+-	LDA and VADER are utilized to extract service features and calculate the sentiment (satisfaction) of each service feature from online reviews, respectively.
 -	For estimation of feature importance, machine learning models and SAGE are used to learn and interpret the nonlinear relationship between service features satisfaction and overall customer satisfaction.
-
 
 ## Implementation
 
