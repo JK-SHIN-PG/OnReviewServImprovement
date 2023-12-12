@@ -86,7 +86,7 @@ if __name__ == "__main__":
         params = argmodel['param'][0]
         if argmodel['model'] == "MLPClassifier":
             params["hidden_layer_sizes"] = [eval(layers) for layers in params["hidden_layer_sizes"]]
-        grid = model_selection.GridSearchCV(estimator= model, param_grid= params, cv= CV_option, n_jobs = args["n_jobs"], refit = True)
+        grid = model_selection.GridSearchCV(estimator= model, param_grid= params, cv= CV_option, n_jobs = args["n_jobs"])
         
         trainedModel = grid.fit(X_train, y_train)
         
