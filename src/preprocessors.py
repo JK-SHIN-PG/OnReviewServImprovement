@@ -192,11 +192,11 @@ class CustomizedPreprocessor:
         return review_list
 
     def getDatasets(self):
-        df_star2 = pd.read_excel(self.path, sheet_name= '2class')
-        df_star3 = pd.read_excel(self.path, sheet_name= '3class')
-        df_star4 = pd.read_excel(self.path, sheet_name= '4class')
+        df_class2 = pd.read_excel(self.path, sheet_name= '2class')
+        df_class3 = pd.read_excel(self.path, sheet_name= '3class')
+        df_class4 = pd.read_excel(self.path, sheet_name= '4class')
 
-        df = pd.concat([df_star2, df_star3, df_star4])
+        df = pd.concat([df_class2, df_class3, df_class4])
         review_score_df = df.loc[:, ["title","body", "rating"]].drop_duplicates().reset_index(drop = True)
     
         review_list = self.makeReviewList(review_score_df)
