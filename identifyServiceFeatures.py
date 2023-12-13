@@ -25,6 +25,8 @@ class ModifiedCustomizedPreprocessor(CustomizedPreprocessor):
 
     def getDatasets(self):
         df = pd.read_csv(self.path)
+        if self.num_reviews != -1:
+            df = df.iloc[:self.num_reviews,:]
         review_list = list(map(self.makeClearSent, df.Review.tolist()))
         score_list = df.Rating
         return review_list, score_list
