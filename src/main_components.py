@@ -124,7 +124,7 @@ def CreateReviewFeatureMatrix(TopicNounMatrix, ReviewTokenList, ReviewList):
 
 
 def getPerformance(input):
-    return np.array(input).mean(axis=0)
+    return np.sum(input,axis=0) / np.sum(input!=0,axis=0)
 
 def estimateImportance(TopicNameList, modelDic, bestmodel, best_params, CV_option, X_train, y_train, args):
     performance_list = []
