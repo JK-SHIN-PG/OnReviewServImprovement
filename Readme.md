@@ -1,5 +1,5 @@
 # Determining Directions of Service Quality Management using Online Review Mining with Interpretable Machine Learning
-(IJHM, [paper](https://www.sciencedirect.com/science/article/pii/S027843192300258X)) 
+(International Journal of Hospitality Management, April 2024, [paper](https://www.sciencedirect.com/science/article/pii/S027843192300258X)) 
 
 ## Explanation
 -	Identifying service features and estimating their importance are crucial for service management.
